@@ -1,3 +1,6 @@
 node_modules
 coverage
 .env
+credentials.json
+tmp/
+dist/

@@ -6,12 +6,30 @@ const router = express.Router();
 // Define Your API Routes Here
 /* ************************************************************************* */
 
-// Define item-related routes
-import itemActions from "./modules/item/itemActions";
+// Define Conges-related routes
+import congesActions from "./modules/rh/congesActions";
+import upload from "./middlewares/upload";
+import uploadCongeController from "./modules/rh/uploadCongeController";
 
-router.get("/api/items", itemActions.browse);
-router.get("/api/items/:id", itemActions.read);
-router.post("/api/items", itemActions.add);
+router.post("/api/conges", congesActions.add);
+router.get("/api/conges", congesActions.browse);
+router.get("/api/conges/:id", congesActions.read);
+router.post("/conges/upload", upload.single("file"), uploadCongeController);
+
+/* ************************************************************************* */
+
+// Define Pointages-related routes
+import pointageActions from "./modules/rh/pointageActions";
+import uploadPointageController from "./modules/rh/uploadPointageController";
+
+router.post("/api/pointages", pointageActions.add);
+router.get("/api/pointages", pointageActions.browse);
+router.get("/api/pointages/:id", pointageActions.read);
+router.post(
+  "/pointages/upload",
+  upload.single("file"),
+  uploadPointageController,
+);
 
 /* ************************************************************************* */
 

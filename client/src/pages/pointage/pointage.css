@@ -1,0 +1,62 @@
+.pointage-page {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 24px;
+  font-family: "Montserrat", sans-serif;
+  background: #ffffff;
+}
+
+.pointage-page h1 {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #000000;
+}
+
+.pointage-page form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pointage-page input[type="text"],
+.pointage-page input[type="file"] {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #cbd8d5;
+  background: #efebe2;
+  font-size: 1rem;
+}
+
+.pointage-page button {
+  width: 100%;
+  padding: 14px;
+  background: #83afad;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.pointage-page button:hover {
+  background: #5d8f8d;
+}
+
+/* Desktop Version */
+
+@media (min-width: 768px) {
+  .pointage-page {
+    max-width: 600px;
+    padding: 40px;
+  }
+
+  .pointage-page h1 {
+    font-size: 2.2rem;
+  }
+}

@@ -1,16 +1,14 @@
 import type { RequestHandler } from "express";
 
 // Import access to data
-import itemRepository from "./itemRepository";
+import pointageRepository from "./pointageRepository";
 
 // The B of BREAD - Browse (Read All) operation
 const browse: RequestHandler = async (req, res, next) => {
   try {
-    // Fetch all items
-    const items = await itemRepository.readAll();
+    const pointages = await pointageRepository.readAll();
 
-    // Respond with the items in JSON format
-    res.json(items);
+    res.json(pointages);
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
@@ -20,16 +18,13 @@ const browse: RequestHandler = async (req, res, next) => {
 // The R of BREAD - Read operation
 const read: RequestHandler = async (req, res, next) => {
   try {
-    // Fetch a specific item based on the provided ID
-    const itemId = Number(req.params.id);
-    const item = await itemRepository.read(itemId);
+    const pointageId = Number(req.params.id);
+    const pointage = await pointageRepository.read(pointageId);
 
-    // If the item is not found, respond with HTTP 404 (Not Found)
-    // Otherwise, respond with the item in JSON format
-    if (item == null) {
+    if (pointage == null) {
       res.sendStatus(404);
     } else {
-      res.json(item);
+      res.json(pointage);
     }
   } catch (err) {
     // Pass any errors to the error-handling middleware
@@ -40,16 +35,13 @@ const read: RequestHandler = async (req, res, next) => {
 // The A of BREAD - Add (Create) operation
 const add: RequestHandler = async (req, res, next) => {
   try {
-    // Extract the item data from the request body
-    const newItem = {
-      title: req.body.title,
-      user_id: req.body.user_id,
+    const newPointage = {
+      employee: req.body.employee,
+      file_url: req.body.file_url,
     };
 
-    // Create the item
-    const insertId = await itemRepository.create(newItem);
+    const insertId = await pointageRepository.create(newPointage);
 
-    // Respond with HTTP 201 (Created) and the ID of the newly inserted item
     res.status(201).json({ insertId });
   } catch (err) {
     // Pass any errors to the error-handling middleware
