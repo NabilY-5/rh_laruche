@@ -7,8 +7,8 @@ export default function Homepage() {
       <h1>Module RH</h1>
 
       <nav>
-        <Link to="/conge">Uploader un congé</Link>
-        <Link to="/pointage">Uploader un pointage</Link>
+        <Link to="/pointage">Pointage</Link>
+        <Link to="/conge">Congé</Link>
       </nav>
     </div>
   );

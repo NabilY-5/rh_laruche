@@ -1,50 +1,52 @@
 import { useState } from "react";
+import { employees } from "../../lib/employees";
 import "./conge.css";
+import pdfIcon from "../../assets/pdf.png";
 
 export default function Conge() {
-  const [file, setFile] = useState<File | null>(null);
   const [employee, setEmployee] = useState("");
+  const [file, setFile] = useState<File | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!file) {
-      alert("Choisis un fichier PDF");
+    if (!employee || !file) {
+      alert("Veuillez sélectionner un salarié et un fichier");
       return;
     }
-
-    const form = new FormData();
-    form.append("file", file);
-    form.append("employee", employee);
-
-    const res = await fetch("http://localhost:3000/conges/upload", {
-      method: "POST",
-      body: form,
-    });
-
-    const data = await res.json();
-    console.log(data);
-
-    alert("Fichier envoyé !");
   };
 
   return (
     <div className="conge-page">
-      <h1>Uploader un congé</h1>
+      <h1>Déposer une demande de congé</h1>
 
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Nom de l'employé"
+        <select
           value={employee}
           onChange={(e) => setEmployee(e.target.value)}
-        />
+          className="employee-select"
+        >
+          <option value="">Sélectionnez un employé</option>
+          {employees.map((emp) => (
+            <option key={emp} value={emp}>
+              {emp}
+            </option>
+          ))}
+        </select>
 
         <input
           type="file"
-          accept="application/pdf"
           onChange={(e) => setFile(e.target.files?.[0] || null)}
         />
+
+        {file && (
+          <div className="file-preview">
+            <img src={pdfIcon} alt="PDF" className="pdf-icon" />
+            <span>
+              Fichier sélectionné : <strong>{file.name}</strong>
+            </span>
+          </div>
+        )}
 
         <button type="submit">Envoyer</button>
       </form>
