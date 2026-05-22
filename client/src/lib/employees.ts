@@ -1,0 +1,17 @@
+export const employees = [
+  "Elodie",
+  "Julienne",
+  "Philippe",
+  "Mohamed",
+  "Jihanne",
+  "Caroline",
+  "Léa",
+  "Nabil",
+  "Mélody",
+  "Virginie",
+  "Rufin",
+  "Coralie",
+  "Lina",
+  "Johanna",
+  "Service Civique",
+];
