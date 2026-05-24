@@ -18,7 +18,7 @@ export default function Pointage() {
 
   return (
     <div className="pointage-page">
-      <h1>Déposer une feuille de pointage</h1>
+      <h1>Feuille de pointage</h1>
 
       <form onSubmit={handleSubmit}>
         <select
