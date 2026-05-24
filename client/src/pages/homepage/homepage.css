@@ -1,50 +1,53 @@
 .homepage {
-  width: 100%;
-  max-width: 480px;
-  margin: 0 auto;
-  padding: 30px;
+  padding: 20px;
   text-align: center;
-  font-family: "Montserrat", sans-serif;
 }
 
 .homepage h1 {
-  font-family: "Intro Rust", "Nunito", sans-serif;
-  font-size: 2rem;
-  margin-bottom: 25px;
-  color: #000000;
+  margin-bottom: 40px;
+  color: #222;
 }
 
 .homepage nav {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
 }
 
-.homepage a {
-  display: block;
-  padding: 14px;
-  background: #f8cf0a;
-  color: #000000;
+.homepage nav a {
+  background: #ffe97a;
+  padding: 20px;
+  border-radius: 12px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #000;
   text-decoration: none;
-  border-radius: 10px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  transition: 0.2s;
+  border: 2px solid #f4c400;
 }
 
-.homepage a:hover {
-  background: #dfb707;
+.homepage nav a:hover {
+  background: #f4c400;
 }
 
 /* Desktop Version */
 
 @media (min-width: 768px) {
   .homepage {
-    max-width: 600px;
-    padding: 50px;
+    max-width: 900px;
   }
 
   .homepage h1 {
     font-size: 2.6rem;
+    margin-bottom: 60px;
+  }
+
+  .homepage nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .homepage nav a {
+    font-size: 1.6rem;
   }
 }

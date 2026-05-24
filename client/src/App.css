@@ -11,12 +11,3 @@ body {
   color: #eee;
   margin: 0;
 }
-
-#root {
-  height: 100vh;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  grid-template-rows: 1fr;
-  align-content: start;
-  padding: 1rem;
-}
